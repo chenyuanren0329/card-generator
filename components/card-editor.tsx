@@ -132,7 +132,7 @@ export function CardEditor({ cardState, setCardState }: CardEditorProps) {
           <div className="space-y-3">
             <div>
               <Label className="text-sm text-slate-400">字体</Label>
-              <Select value={cardState.titleFont} onValueChange={(value) => setCardState({ ...cardState, titleFont: value })}>
+              <Select value={cardState.titleFont} onValueChange={(value) => value && setCardState({ ...cardState, titleFont: value })}>
                 <SelectTrigger className="bg-slate-800 border-slate-700">
                   <SelectValue />
                 </SelectTrigger>
@@ -147,7 +147,10 @@ export function CardEditor({ cardState, setCardState }: CardEditorProps) {
               <Label className="text-sm text-slate-400">字号: {cardState.titleSize}px</Label>
               <Slider
                 value={[cardState.titleSize]}
-                onValueChange={([value]) => setCardState({ ...cardState, titleSize: value })}
+                onValueChange={(value) => {
+                  const newValue = Array.isArray(value) ? value[0] : value
+                  setCardState({ ...cardState, titleSize: newValue })
+                }}
                 min={24}
                 max={72}
                 step={1}
@@ -187,7 +190,7 @@ export function CardEditor({ cardState, setCardState }: CardEditorProps) {
           <div className="space-y-3">
             <div>
               <Label className="text-sm text-slate-400">字体</Label>
-              <Select value={cardState.contentFont} onValueChange={(value) => setCardState({ ...cardState, contentFont: value })}>
+              <Select value={cardState.contentFont} onValueChange={(value) => value && setCardState({ ...cardState, contentFont: value })}>
                 <SelectTrigger className="bg-slate-800 border-slate-700">
                   <SelectValue />
                 </SelectTrigger>
@@ -202,7 +205,10 @@ export function CardEditor({ cardState, setCardState }: CardEditorProps) {
               <Label className="text-sm text-slate-400">字号: {cardState.contentSize}px</Label>
               <Slider
                 value={[cardState.contentSize]}
-                onValueChange={([value]) => setCardState({ ...cardState, contentSize: value })}
+                onValueChange={(value) => {
+                  const newValue = Array.isArray(value) ? value[0] : value
+                  setCardState({ ...cardState, contentSize: newValue })
+                }}
                 min={14}
                 max={36}
                 step={1}

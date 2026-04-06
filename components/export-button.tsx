@@ -6,7 +6,7 @@ import { exportCardAsPNG } from '@/lib/export'
 import { useState } from 'react'
 
 interface ExportButtonProps {
-  previewRef: React.RefObject<HTMLDivElement>
+  previewRef: React.RefObject<HTMLDivElement | null>
 }
 
 export function ExportButton({ previewRef }: ExportButtonProps) {

@@ -7,12 +7,11 @@ export async function exportCardAsPNG(
 ): Promise<void> {
   try {
     const canvas = await html2canvas(element, {
-      scale: 2,
       useCORS: true,
       allowTaint: false,
       backgroundColor: null,
       logging: false
-    })
+    } as any)
 
     canvas.toBlob((blob) => {
       if (!blob) return

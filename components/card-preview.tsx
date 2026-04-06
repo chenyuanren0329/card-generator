@@ -6,7 +6,7 @@ import { gradients } from '@/lib/gradients'
 
 interface CardPreviewProps {
   cardState: CardState
-  previewRef: React.RefObject<HTMLDivElement>
+  previewRef: React.RefObject<HTMLDivElement | null>
 }
 
 export function CardPreview({ cardState, previewRef }: CardPreviewProps) {
